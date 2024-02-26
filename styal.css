@@ -1,0 +1,136 @@
+:root {
+    --transition: all 0.3s ease-in-out;
+    --color-white: #f4f4f4;
+    --color-black: #1f1f1f;
+    --color-primary: #01fe00;
+    --color-secondary: #e8e812;
+    --color-tertiary: #228fcd;
+    --color-quaternary: #555c38;
+    --color-quinary: #f75c03;
+    --font-secondary: "Candara", "Calibri", "Segoe", "Segoe UI", "Optima", "Arial",
+      sans-serif;
+    --size--1: clamp(0.8333rem, 0.7881rem + 0.226vi, 1rem);
+  }
+  
+  html {
+    background: var(--color-black);
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .btn {
+    display: inline-block;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 1rem 2rem;
+    font-size: var(--size--1);
+    cursor: pointer;
+    text-align: center;
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+    transition: var(--transition);
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    transform: translateY(2px);
+    text-decoration: none !important;
+  }
+  
+  .btn.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-black);
+    border: 1px solid var(--color-primary);
+  }
+  .btn.btn-primary:hover {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+  }
+  
+  .btn.btn-secondary {
+    background: var(--color-secondary);
+    color: var(--color-black);
+    border: 1px solid var(--color-secondary);
+  }
+  
+  .btn.btn-secondary:hover {
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+  
+  .btn.btn-tertiary {
+    background: var(--color-tertiary);
+    color: var(--color-white);
+    border: 1px solid var(--color-tertiary);
+  }
+  .btn.btn-tertiary:hover {
+    background: var(--color-quinary);
+    border: 1px solid var(--color-quinary);
+  }
+  .btn.btn-quaternary {
+    background: var(--color-quaternary);
+    color: var(--color-white);
+    border: 1px solid var(--color-quaternary);
+  }
+  .btn.btn-quaternary:hover {
+    background: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    color: var(--color-black);
+  }
+  .btn.btn-quinary {
+    background: var(--color-quinary);
+    color: var(--color-black);
+    border: 1px solid var(--color-quinary);
+  }
+  .btn.btn-quinary:hover {
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+  
+  .tire-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='105.735' height='313.29'%3E%3Cpath d='M0 0v74.222h15.273L27.876 0ZM0 239.069v74.221h27.876l-12.6-74.222ZM0 187.091v43.15h32.406l-21.663-43.15ZM0 83.047v43.149h32.406L10.743 83.047ZM0 135.072v43.148h10.743l21.663-43.148ZM37.594 0 24.988 74.222h43.15L80.743 0ZM24.988 239.069l12.6 74.222h43.148l-12.6-74.222ZM20.462 187.09l21.662 43.149h43.149L63.611 187.09ZM85.274 126.196 63.611 83.048H20.462l21.662 43.148ZM42.125 135.072 20.462 178.22h43.149l21.663-43.148ZM90.461 0l-12.6 74.222h27.875V0ZM77.859 239.069l12.6 74.222h15.273v-74.222ZM73.329 187.091l21.663 43.15h10.743v-43.15ZM73.329 83.047l21.663 43.149h10.743V83.047ZM94.992 135.072 73.329 178.22h32.406v-43.148Z'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: contain;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    transform: rotate(-35deg);
+    mask-image: linear-gradient(90deg, black 50%, transparent 0%);
+    mask-size: 200% 200%;
+    mask-position: 100% 100%;
+    transition: var(--transition);
+  }
+  
+  .btn:hover .tire-track {
+    opacity: 1;
+    mask-position: 0 0;
+  }
+  
+  .btn .text {
+    transition: var(--transition);
+    position: relative;
+    display: block;
+    z-index: 1;
+  }
+  /* Make text white when tire track is visible */
+  .btn:hover .text {
+    color: var(--color-white);
+    transform: scale(1.1);
+    text-shadow: 2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black,
+      1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+  }
+  
